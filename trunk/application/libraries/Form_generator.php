@@ -486,6 +486,28 @@ class Form_generator extends CI_Form_validation {
             return $type($arrForm['name'], $arrForm['value']);
         }
     }
+
+
+
+
+
+
+    /**
+     * Output Form Plain
+     * 
+     * Returns a plain text in place of a form
+     * 
+     * @param array $arrForm
+     * @return string
+     */
+    protected function _output_form_plain($type, array $arrForm = array()) {
+        $output = '<div class="form_plain"';
+        if(array_key_exists('id', $arrForm)) { $output .= ' id="'.$arrForm['id'].'"'; }
+        $output .= '>';
+        if(array_key_exists('value', $arrForm)) { $output .= $arrForm['value']; }
+        $output .= '</div>';
+        return $output;
+    }
     
     
     
