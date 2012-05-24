@@ -1,0 +1,15 @@
+V1.0
+===============================================
+
+Initial build.  It contains the following form types:
+ - reCaptcha (form_recaptcha)
+ - plain text (form_plain)
+ - checkbox multi (form_checkbox_multi)
+ - radio multi (form_radio_multi)
+ - any that are standard to Codeigniter (output using the form_helper function)
+
+Rule references:
+ - alnum_space - Alphanumeric and space character
+ - alnum_dash_space - Alphanumeric, space, dash, underscore
+ - alpha_space - Alpha (not numeric) and space
+ - the required rule on form_dropdown is actually $value > 0 (0 being the "- Select -" line)
