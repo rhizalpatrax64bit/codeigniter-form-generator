@@ -1122,13 +1122,13 @@ class Form_generator extends CI_Form_validation {
     
     
     /**
-     * Alpha Dash Space
+     * Alnum Dash Space
      * 
      * Alpha numeric with dash, underscore and space
      * @param string $str
      * @return bool
      */
-    public function alpha_dash_space($str) {
+    public function alnum_dash_space($str) {
         return ( ! preg_match("/^([-a-z0-9_-\s])+$/i", $str)) ? FALSE : TRUE;
     }
     
