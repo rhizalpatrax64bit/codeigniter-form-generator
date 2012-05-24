@@ -12,22 +12,7 @@
 $lang['form_emailaddress'] = 'Email Address';
 $lang['form_password'] = 'Password';
 $lang['form_forgotten_password'] = 'Forgotten password';
-$lang['form_new_password'] = 'New password';
-$lang['form_password_confirm'] = 'Confirm password';
 $lang['form_save_login'] = 'Save login on this computer';
-$lang['form_notes'] = 'Notes';
-
-/* Device labels */
-$lang['device_asset_number'] = 'Reference number';
-$lang['device_make'] = 'Make';
-$lang['device_model'] = 'Model';
-$lang['device_serial'] = 'Serial number';
-$lang['device_type'] = 'Device type';
-$lang['device_purchased'] = 'Date of purchase';
-$lang['allocate_staff_name'] = 'Name';
-$lang['allocate_date_issued'] = 'Date issued';
-$lang['deallocate_date_returned'] = 'Date returned';
-$lang['allocation_location'] = 'Location';
 
 /* General stuff */
 $lang['form_yes'] = 'Yes';
@@ -53,7 +38,15 @@ $lang['alpha_space'] = "The %s field may only contain alpha characters and space
 /* Action menu buttons */
 $lang['action_menu_submit'] = 'Submit';
 $lang['action_menu_login'] = 'Login';
-$lang['action_menu_returned'] = 'Mark as returned';
-$lang['action_menu_recall'] = 'Recall';
 $lang['action_menu_go'] = 'Go';
+
+/* CAPTCHA language */
+$lang['recaptcha_class_initialized'] = 'reCaptcha Library Initialized';
+$lang['recaptcha_no_private_key'] = 'You did not supply an API key for Recaptcha';
+$lang['recaptcha_no_remoteip'] = 'For security reasons, you must pass the remote ip to reCAPTCHA';
+$lang['recaptcha_socket_fail'] = 'Could not open socket';
+$lang['recaptcha_incorrect_response'] = 'Incorrect Security Image Response';
+$lang['recaptcha_field_name'] = 'Security Image';
+$lang['recaptcha_html_error'] = 'Error loading security image.  Please try again later';
+
 ?>
