@@ -19,7 +19,6 @@ class MY_Form_validation extends Form_generator {
 
     /* Fields that are ignored from POST */
     protected $_arrIgnore = array(
-        'form_plain',
     );
     
     
@@ -119,42 +118,6 @@ class MY_Form_validation extends Form_generator {
             $this->set_error($name, $message);
             return false;
         }
-    }
-    
-    
-    
-    
-    
-    
-    protected function _input_form_notes($name, array $arrData = array()) {
-        echo '<pre>'.print_r($arrData, true).'</pre>';exit;
-    }
-    
-    
-    
-    
-    
-    
-    /**
-     * Output Form Notes
-     * 
-     * Outputs a notes field - previous data not
-     * editable
-     * 
-     * @param string $type
-     * @param array $arrForm
-     * @return string
-     */
-    protected function _output_form_notes($type, array $arrForm = array()) {
-        $value = $arrForm['value'];
-        unset($arrForm['value']);
-        
-        /* Output the value */
-        $output = '<div class="form_notes_value">'.nl2br($value).'</div>';
-        
-        $output .= form_textarea($arrForm);
-        
-        return $output;
     }
 
 

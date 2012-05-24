@@ -62,6 +62,12 @@ class Form_generator extends CI_Form_validation {
     protected $_needs_formId = true;
     protected $_errors_display = false;
     
+    /* Ignored values */
+    protected $_arrIgnored = array(
+        'form_plain',
+        'form_captcha',
+    );
+    
     /* Do we have a CAPTCHA in the form */
     protected $_has_captcha = false;
     
@@ -95,8 +101,34 @@ class Form_generator extends CI_Form_validation {
         $objCI->lang->load('form_validation');
         $objCI->lang->load('MY_form_validation');
         
+        if(isset($this->_arrIgnore)) {
+            $this->_arrIgnored = array_merge($this->_arrIgnored, $this->_arrIgnore);
+        }
+        
         /* Set URL to this page by default */
         $this->_url = current_url();
+    }
+    
+    
+    
+    
+    
+    
+    /**
+     * Add Form CAPTCHA
+     * 
+     * Mark that we have a CAPTCHA field
+     * 
+     * @param array $arrFields
+     * @param string $name
+     * @param string $id
+     * @return array
+     */
+    protected function _add_form_captcha($arrFields, $name = null, $id = null) {
+        /* Mark that we have CAPTCHA */
+        $this->_has_captcha = true;
+        
+        return $arrFields;
     }
 
 
@@ -359,6 +391,27 @@ class Form_generator extends CI_Form_validation {
     
     
     /**
+     * Output Form CAPTCHA
+     * 
+     * Outputs the CAPTCHA field
+     * 
+     * @param string $type
+     * @param array $arrForm
+     * @return string
+     */
+    protected function _output_form_captcha($type, $arrForm) {
+        /* Load relevant stuff */
+        $objCI = &get_instance();
+        $objCI->load->library('Recaptcha');
+        return $objCI->recaptcha->get_html();
+    }
+    
+    
+    
+    
+    
+    
+    /**
      * Output Form Default
      * 
      * Outputs the form element HTML
@@ -593,7 +646,7 @@ class Form_generator extends CI_Form_validation {
                 $required_text = false;
                 
                 if($required_flag != '') {
-                    $required_text = $objCI->lang->line('required_message', array('%l' => $required_flag));
+                    $required_text = $this->language('required_message', array('%l' => $required_flag));
                 }
                 
                 if($required_text !== false) {
@@ -755,7 +808,7 @@ class Form_generator extends CI_Form_validation {
         
         if($value !== false) {
             /* If not ignored */
-            if(!isset($this->_arrIgnore) || !is_array($this->_arrIgnore) || !in_array($arrField['type'], $this->_arrIgnore)) {
+            if(!isset($this->_arrIgnored) || !is_array($this->_arrIgnored) || !in_array($arrField['type'], $this->_arrIgnored)) {
                 /* Only add if not in ignore array */
                 if(is_string($value)) { $value = trim($value); }
                 
@@ -858,7 +911,9 @@ class Form_generator extends CI_Form_validation {
         }
         
         /* Add the data */
-        $this->_arrDetails[$arrField['name']] = $this->{$function}($arrField['name'], $arrField);
+        if(!in_array($arrField['type'], $this->_arrIgnored)) {
+            $this->_arrDetails[$arrField['name']] = $this->{$function}($arrField['name'], $arrField);
+        }
     }
 
 
@@ -1500,6 +1555,40 @@ class Form_generator extends CI_Form_validation {
         }
         return false;
         
+    }
+    
+    
+    
+    
+    
+    
+    /**
+     * Language
+     * 
+     * Get the language value and also perform
+     * a string replace on it.  If you pass an
+     * array, the keys will be replaced by the
+     * values.
+     * 
+     * Eg. the string "hello %n", pass,
+     * array('%n' => 'Dave') and it will return
+     * "hello Dave"
+     * 
+     * @param string $string
+     * @param array $arrReplace
+     * @return string/false
+     */
+    public function language($string, array $arrReplace = array()) {
+        /* Get the language */
+        $objCI = &get_instance();
+        $lang = $objCI->lang->line($string);
+        
+        /* Replace values */
+        if($lang !== false && count($arrReplace) > 0) {
+            $lang = str_replace(array_keys($arrReplace), array_values($arrReplace), $lang);
+        }
+        
+        return $lang;
     }
     
     
