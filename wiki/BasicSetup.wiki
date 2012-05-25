@@ -19,7 +19,7 @@ If you are copying anything that already exists, beware that you may overwrite y
 
 We're going to keep the first form simple.  This is based upon the one in _forms/general.php_, but is not identical.  This is a simple login form - you need to get the email address and password of the user and then validate it before logging them in.
 
-The way to think of this is that you are creating a form controller, which is activated from your controller (or elsewhere if appropriate).
+The way to think of this is that you are splitting form data from your controller and putting it in it's own separate "Form Controller".  This then will be activated from your controller.  The advantages of separating out the form data is so that don't need to repeat code.  Imagine you have the login form on both a login page and in your page head (like Twitter) - this way, you would only need write the form once.
 
 ----
 
@@ -27,7 +27,7 @@ The way to think of this is that you are creating a form controller, which is ac
 
 Firstly, we create the form controller.  In your application directory, create a folder called *forms* and create a file called "example.php" (it can be anything).
 
-In your controller, you will get this form like this:
+In your controller, you will get the form like this:
 {{{
 <?php
 class welcome_controller extends CI_Controller {
@@ -49,7 +49,7 @@ class welcome_controller extends CI_Controller {
 ?>
 }}}
 
-This should be broadly familiar with Codeigniter users.  We've loaded the form, queried the method and then sent it to the view file.
+This should be broadly familiar to Codeigniter users.  We've loaded the form, queried the method and then sent it to the view file.
 
 ----
 
