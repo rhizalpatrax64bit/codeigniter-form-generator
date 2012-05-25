@@ -1,3 +1,44 @@
 =Basic Setup=
 
 This will help you set up the form generator in Codeigniter
+
+==Initial Setup==
+
+The first thing you will need to do is download the latest version and copy it into your Codeigniter files.  There are some sample forms that you do not need to copy over.  These are entirely optional:
+ * controllers/test_form.php
+ * forms/general.php
+ * views/test_form.php
+
+If you are you copying anything that already exists, beware that you may overwrite your existing code.  The files that may be at risk of this are:
+ * config/form_validation.php
+ * core/MY_Loader.php
+ * helpers/MY_form_helper.php
+ * libraries/MY_Form_validation.php
+
+==Your First Form==
+
+We're going to keep the first form simple.  This is based upon the one in _forms/general.php_, but is not identical.  This is a simple login form - you need to get the email address and password of the user and then validate it before logging them in.
+
+Firstly, we create the form variables
+{{{
+$arrForm = array(
+    array(
+        'name' => 'email_address',
+        'type' => 'form_input',
+        'label' => 'Email Address',
+        'rules' => 'required|valid_email',
+    ),
+    array(
+        'name' => 'password',
+        'type' => 'form_password',
+        'label' => 'Password',
+        'rules' => 'required',
+    ),
+);
+}}}
+
+This should be fairly straightforward, but as an explanation:
+ * *Name* is what becomes the _name_ tag in the HTML;
+ * *Type* is the form type (see [http://codeigniter.com/user_guide/helpers/form_helper.html Codeigniter Form Helper] for a full list)
+ * *Label* is what is displayed in the `<label>` tag
+ * *Rules* is what validation rules we wish to perform upon this data input
