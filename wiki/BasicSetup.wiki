@@ -21,7 +21,7 @@ We're going to keep the first form simple.  This is based upon the one in _forms
 
 The way to think of this is that you are creating a form controller, which is activated from your controller (or elsewhere if appropriate).
 
----
+----
 
 ===The Controller===
 
@@ -51,7 +51,7 @@ class welcome_controller extends CI_Controller {
 
 This should be broadly familiar with Codeigniter users.  We've loaded the form, queried the method and then sent it to the view file.
 
----
+----
 
 ===The Form Controller===
 
@@ -147,7 +147,7 @@ return $this->get_fields();
 
 This will add one button to the action menu - a submit button with the label "Login".  The astute amongst you will notice that this refers to a users model.  This is as an example to show you how this can interact with models.
 
----
+----
 
 ===The View===
 
