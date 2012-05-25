@@ -9,7 +9,7 @@ The first thing you will need to do is download the latest version and copy it i
  * forms/general.php
  * views/test_form.php
 
-If you are you copying anything that already exists, beware that you may overwrite your existing code.  The files that may be at risk of this are:
+If you are copying anything that already exists, beware that you may overwrite your existing code.  The files that may be at risk of this are:
  * config/form_validation.php
  * core/MY_Loader.php
  * helpers/MY_form_helper.php
