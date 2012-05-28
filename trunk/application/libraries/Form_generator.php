@@ -15,7 +15,7 @@ class Form_generator extends CI_Form_validation {
 
 
     /* Version of this library */
-    const FORM_VER = 1.0;
+    const FORM_VER = 1.0.1;
 
 
     /* Prepend for add form type function */
