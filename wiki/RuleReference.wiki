@@ -1,3 +1,5 @@
 =Rule Reference=
 
 Rules that you can use in this library
+
+You can also use any of the ones that are in the [http://codeigniter.com/user_guide/libraries/form_validation.html#rulereference Codeigniter Form Validation] library
