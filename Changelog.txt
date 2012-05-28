@@ -1,4 +1,13 @@
-V1.0
+V1.0.1 - 2012-05-28
+===============================================
+
+Couple of odds-and-sods:
+ - Couple of language things added (username, reset)
+ - Moved form_checkbox_multi and radio_mutli to form_generator - MY_Form_validation now empty
+ - Changed version number
+
+
+V1.0 - 2012-05-25
 ===============================================
 
 Initial build.  It contains the following form types:
