@@ -10,6 +10,7 @@
 
 /* Form labels */
 $lang['form_emailaddress'] = 'Email Address';
+$lang['form_username'] = 'Username';
 $lang['form_password'] = 'Password';
 $lang['form_forgotten_password'] = 'Forgotten password';
 $lang['form_save_login'] = 'Save login on this computer';
@@ -38,6 +39,7 @@ $lang['alpha_space'] = "The %s field may only contain alpha characters and space
 /* Action menu buttons */
 $lang['action_menu_submit'] = 'Submit';
 $lang['action_menu_login'] = 'Login';
+$lang['action_menu_reset'] = 'Reset';
 $lang['action_menu_go'] = 'Go';
 
 /* CAPTCHA language */
