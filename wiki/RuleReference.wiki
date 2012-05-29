@@ -2,4 +2,10 @@
 
 Rules that you can use in this library
 
+|| *Rule* || *Parameter* || *Description* || *Example* ||
+|| required || No || Returns FALSE if the form element is empty.  If a _form_dropdown_ element, return FALSE if the value is 0. || ||
+|| alnum_space || No || Returns FALSE if the form element contains anything other than alpha-numeric characters or space. || ||
+|| alpha_dash_space ||  No || Returns FALSE if the form element contains anything other than alpha-numeric characters, underscores, dashes or space. || ||
+|| alpha_space || No || Returns FALSE if the form element contains anything other than alpha characters or space. || ||
+
 You can also use any of the ones that are in the [http://codeigniter.com/user_guide/libraries/form_validation.html#rulereference Codeigniter Form Validation] library
