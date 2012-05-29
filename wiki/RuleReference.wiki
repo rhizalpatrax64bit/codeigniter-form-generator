@@ -9,3 +9,31 @@ Rules that you can use in this library
 || alpha_space || No || Returns FALSE if the form element contains anything other than alpha characters or space. || ||
 
 You can also use any of the ones that are in the [http://codeigniter.com/user_guide/libraries/form_validation.html#rulereference Codeigniter Form Validation] library
+
+==Creating a custom rule==
+
+There will be times when you wish to create your own rule references.  This is very easy to do in your _MY_Form_validation.php_ file.
+
+Let's imagine, for example, you want to test that the submitted value is equal to 'value' (why would you? But this is an example).  Create the following function:
+
+{{{
+public function submit_is_value($str) {
+    return $str == 'value';
+}
+}}}
+
+A simple bit of PHP.  You would activate this with the rule 'submit_is_value'.  If it equalled 'value', it would return TRUE and FALSE if not.
+
+Now, let's imagine you want a similar function, but that you want to specify in the form controller what that value is.
+
+{{{
+public function submit_is($str, $value = 'value') {
+    return $str == $value;
+}
+}}}
+
+Again, a simple PHP test to illustrate the point.  Notice that we now have a $value in here.  To activate this, simply use the rule 'submit_is`[foobar`]' to test that the submitted value is equal to 'foobar'.  In my example above, it defaults to 'value'.
+
+===A word of caution===
+
+You can test whatever you like here, but you *MUST* return either TRUE or FALSE.
