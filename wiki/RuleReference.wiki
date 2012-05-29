@@ -34,6 +34,12 @@ public function submit_is($str, $value = 'value') {
 
 Again, a simple PHP test to illustrate the point.  Notice that we now have a $value in here.  To activate this, simply use the rule 'submit_is`[foobar`]' to test that the submitted value is equal to 'foobar'.  In my example above, it defaults to 'value'.
 
+Remember to add a line in your language file with the same name as the rule.  As in the default CI language, use _%s_ to get the form label name in.
+
+{{{
+$lang['submit_is_value'] = 'The value of the %s field must be value';
+}}}
+
 ===A word of caution===
 
 You can test whatever you like here, but you *MUST* return either TRUE or FALSE.
